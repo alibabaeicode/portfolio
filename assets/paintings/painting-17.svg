@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g17" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e5e0d4" />
+      <stop offset="100%" stop-color="#c1b9a8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g17)" />
+  <path d="M424,310 Q178,784 374,296" stroke="#0a0a0a" stroke-width="52" fill="none" stroke-linecap="round" opacity="0.13" />
+<path d="M112,27 Q764,429 254,393" stroke="#0a0a0a" stroke-width="34" fill="none" stroke-linecap="round" opacity="0.15" />
+<path d="M325,655 Q411,140 700,741" stroke="#0a0a0a" stroke-width="53" fill="none" stroke-linecap="round" opacity="0.07" />
+<path d="M201,154 Q572,702 722,545" stroke="#0a0a0a" stroke-width="31" fill="none" stroke-linecap="round" opacity="0.09" />
+<path d="M126,732 Q316,419 654,70" stroke="#0a0a0a" stroke-width="23" fill="none" stroke-linecap="round" opacity="0.11" />
+  <text x="40" y="750" font-family="Georgia, serif" font-size="28" fill="#0a0a0a" opacity="0.35">Untitled — placeholder 17</text>
+</svg>
