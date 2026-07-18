@@ -119,6 +119,11 @@ a:hover { color: var(--ink); }
   height: max-content;
   display: flex; flex-direction: column; gap: 36px;
 }
+@media (max-width: 700px) {
+  .home-sidebar {
+    position: static;
+  }
+}
 .home-name {
   font-family: var(--font-display);
   font-weight: 700;
