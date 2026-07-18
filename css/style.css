@@ -9,6 +9,11 @@
   --font-display: 'Barriecito', cursive;
   --font-label: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
+
+  /* Mobile type scale: multiplier applied to a desktop base size to get
+     that element's minimum size on mobile (<=700px). Keeps the ratio
+     explicit and in one place instead of picking mobile sizes by eye. */
+  --mobile-heading-scale: 1.4;
 }
 
 * { box-sizing: border-box; }
@@ -172,7 +177,8 @@ a:hover { color: var(--ink); }
     position: static;
   }
   .home .home-name {
-    font-size: clamp(72px, 19vw, 130px);
+    /* min = desktop base (56px) x --mobile-heading-scale */
+    font-size: clamp(calc(56px * var(--mobile-heading-scale)), 19vw, 130px);
   }
   .home-tagline {
     margin-top: -28px;
