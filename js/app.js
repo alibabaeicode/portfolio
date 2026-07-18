@@ -91,8 +91,13 @@
   function renderAbout() {
     return `<section class="page about">
       <h1>About</h1>
-      <p>I'm Ali Babaei, a painter working at the collision of portraiture, typography and collage. My canvases layer distorted faces, hand-lettered marks and found imagery — skulls, birds, architecture — over raw fields of color, letting gesture and text bleed into the figure until the two become indistinguishable.</p>
-      <p>Each piece starts loose and improvisational, built from fast digital brushwork, then sharpened with graphic type and high-contrast cropping. The result sits somewhere between street poster, expressionist portrait and diary entry.</p>
+      <p>I exist as a brief clearing between two vast darknesses. Everything I make is an attempt to understand what that brief opening reveals.</p>
+      <p>I didn't choose the machinery that became me. It was assembled long before I arrived—by evolution, culture, memory, accident, and countless invisible forces that ask for no permission and offer no explanations. Consciousness is simply where they happen to meet.</p>
+      <p>Rather than searching for certainty, I try to observe that machinery while it's running. Not to escape it, but to see it clearly.</p>
+      <p>I don't believe the self is singular. What I call “I” is a shifting negotiation between instincts, histories, desires, fears, borrowed voices, and patterns older than language. My work isn't an attempt to resolve those contradictions. It's where they become visible.</p>
+      <p>Whether through painting, design, or ideas, I'm drawn to the hidden architectures beneath human experience—the systems that shape perception before perception becomes thought, and thought becomes belief.</p>
+      <p>I don't make art to decorate certainty or to illustrate conclusions. I make it because looking carefully is one of the few honest things I know how to do.</p>
+      <p>If my work has a subject, it is this strange condition of being a universe becoming aware of itself for a moment—curious enough to ask questions it may never answer, and alive enough to keep asking anyway.</p>
     </section>`;
   }
 
