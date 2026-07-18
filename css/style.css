@@ -119,12 +119,7 @@ a:hover { color: var(--ink); }
   height: max-content;
   display: flex; flex-direction: column; gap: 36px;
 }
-@media (max-width: 700px) {
-  .home-sidebar {
-    position: static;
-  }
-}
-.home-name {
+.home .home-name {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: .86;
@@ -171,6 +166,17 @@ a:hover { color: var(--ink); }
   font-size: 14px;
   letter-spacing: .04em;
   text-transform: uppercase;
+}
+@media (max-width: 700px) {
+  .home-sidebar {
+    position: static;
+  }
+  .home .home-name {
+    font-size: clamp(72px, 19vw, 130px);
+  }
+  .home-tagline {
+    margin-top: -28px;
+  }
 }
 
 .home-content {
@@ -300,8 +306,15 @@ a:hover { color: var(--ink); }
 }
 .contact h1 {
   font-size: clamp(48px, 10vw, 140px);
-  margin: 0 0 40px;
+  margin: 0 0 24px;
   line-height: .9;
+}
+.contact-note {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 0 32px;
 }
 .contact a {
   font-family: var(--font-label);
