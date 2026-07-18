@@ -25,25 +25,17 @@ python3 -m http.server 8080
 - `js/app.js` — view state (home/gallery/about/contact), routing, the
   custom cursor, and the lightbox — a vanilla-JS port of the design's
   React-ish `DCLogic` component.
-- `assets/paintings/` — artwork images referenced by `paintings.js`.
+- `assets/paintings/` — the 24 artwork photos referenced by `paintings.js`,
+  resized to a 2000px long edge and re-compressed (JPEG, quality 82) for
+  web delivery.
 
 ## About the artwork images
 
-The source design references 24 original photos (portrait/collage
-paintings) uploaded to the design project. The design-sync API used to
-pull the project caps file reads at 256 KB, and every one of those photos
-is a full-resolution phone photo well above that cap — so the actual
-image bytes could not be transferred here. `assets/paintings/` currently
-holds 24 generated placeholder SVGs (numbered, muted abstract gradients)
-standing in for the real work so every layout, hover state and the
-lightbox can be seen and tested end-to-end.
-
-**To swap in the real photos:** replace the files in `assets/paintings/`
-(any image format works — the code only cares about the `src` path) and
-update the corresponding `src` in `js/paintings.js`, or just overwrite
-`painting-01.svg` … `painting-24.svg` with same-named real images (e.g.
-`painting-01.jpg`) and update the extension in `paintings.js`. Nothing
-else needs to change — order and index mapping stay the same.
+The 24 photos are Ali's originals, order-matched to the source design's
+`FILES` array (so the hero/feature picks on Home and the "No. NN" labels
+in the gallery line up correctly). To swap any of them out, replace the
+file in `assets/paintings/` — the code only cares about the `src` path
+in `js/paintings.js`.
 
 ## Design reference
 
