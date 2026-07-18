@@ -18,7 +18,7 @@
   function tile(index, className) {
     const p = PAINTINGS[index];
     return `<div class="image-tile ${className}" data-action="openLightbox" data-index="${index}">
-      <img src="${p.src}" alt="Ali Babaei painting, ${label(index)}" />
+      <img src="${p.src}" alt="Ali Babaei painting, ${label(index)}" loading="lazy" />
     </div>`;
   }
 
@@ -77,7 +77,7 @@
           <span>Ali Babaei</span>
         </div>
         <div class="poster-image">
-          <img src="${p.src}" alt="Ali Babaei painting ${label(i)}" />
+          <img src="${p.src}" alt="Ali Babaei painting ${label(i)}" loading="lazy" />
         </div>
       </div>`;
     }).join('');
