@@ -92,12 +92,11 @@
     return `<section class="page about">
       <h1>About</h1>
       <p>I exist as a brief clearing between two vast darknesses. Everything I make is an attempt to understand what that brief opening reveals.</p>
-      <p>I didn't choose the machinery that became me. It was assembled long before I arrived—by evolution, culture, memory, accident, and countless invisible forces that ask for no permission and offer no explanations. Consciousness is simply where they happen to meet.</p>
-      <p>Rather than searching for certainty, I try to observe that machinery while it's running. Not to escape it, but to see it clearly.</p>
-      <p>I don't believe the self is singular. What I call “I” is a shifting negotiation between instincts, histories, desires, fears, borrowed voices, and patterns older than language. My work isn't an attempt to resolve those contradictions. It's where they become visible.</p>
-      <p>Whether through painting, design, or ideas, I'm drawn to the hidden architectures beneath human experience—the systems that shape perception before perception becomes thought, and thought becomes belief.</p>
-      <p>I don't make art to decorate certainty or to illustrate conclusions. I make it because looking carefully is one of the few honest things I know how to do.</p>
-      <p>If my work has a subject, it is this strange condition of being a universe becoming aware of itself for a moment—curious enough to ask questions it may never answer, and alive enough to keep asking anyway.</p>
+      <p>I didn't choose the machinery that became me. It was assembled long before I arrived—by evolution, culture, memory, accident, and countless invisible forces. Rather than searching for certainty, I try to observe that machinery while it's running—not to escape it, but to see it clearly.</p>
+      <p>I don't believe the self is singular. What I call “I” is a shifting negotiation between instincts, memories, desires, fears, and borrowed voices. My work is where those contradictions become visible.</p>
+      <p>Through painting, design, and ideas, I explore the hidden architectures beneath human experience—the patterns that shape perception before perception becomes thought, and thought becomes belief.</p>
+      <p>I don't make art to illustrate conclusions. I make it because looking carefully is one of the few honest things I know how to do.</p>
+      <p>If my work has a subject, it is this strange condition of being a universe becoming aware of itself for a moment—curious enough to ask questions it may never answer.</p>
     </section>`;
   }
 
