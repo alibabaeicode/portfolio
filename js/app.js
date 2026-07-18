@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="pill-button" data-action="goContact" tabindex="0" role="button">
-          <span>Get In Touch</span>
+          <span>Share A Thought</span>
         </div>
       </div>
 
@@ -103,6 +103,7 @@
   function renderContact() {
     return `<section class="page contact">
       <h1>Let's<br>Talk</h1>
+      <p class="contact-note">Got a thought living in the same space as these paintings — one that could become a new piece? Share it by email.</p>
       <a href="mailto:alibabaei.design@gmail.com" data-action="growCursorLink">alibabaei.design@gmail.com</a>
     </section>`;
   }
