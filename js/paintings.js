@@ -1,12 +1,12 @@
 // Ordered painting manifest — order matches the source design's FILES array,
 // so index-based picks (hero/feature images, "No. NN" labels) line up.
 const PAINTINGS = [
-  { src: 'assets/paintings/painting-01.jpg', title: 'Wired' },
+  { src: 'assets/paintings/painting-01.jpg', title: 'Raw Nerve' },
   { src: 'assets/paintings/painting-02.jpg', title: 'Static' },
   { src: 'assets/paintings/painting-03.jpg', title: 'Bared' },
   { src: 'assets/paintings/painting-04.jpg', title: 'Anarchy' },
   { src: 'assets/paintings/painting-05.jpg', title: 'Never' },
-  { src: 'assets/paintings/painting-06.jpg', title: 'Silence' },
+  { src: 'assets/paintings/painting-06.jpg', title: 'Unrest' },
   { src: 'assets/paintings/painting-07.jpg', title: 'Forever' },
   { src: 'assets/paintings/painting-08.jpg', title: 'Erased' },
   { src: 'assets/paintings/painting-09.jpg', title: 'Vigil' },
@@ -24,5 +24,5 @@ const PAINTINGS = [
   { src: 'assets/paintings/painting-21.jpg', title: 'Bare Bones' },
   { src: 'assets/paintings/painting-22.jpg', title: 'Snarl' },
   { src: 'assets/paintings/painting-23.jpg', title: 'Midnight' },
-  { src: 'assets/paintings/painting-24.jpg', title: 'Turned' },
+  { src: 'assets/paintings/painting-24.jpg', title: 'Untamed' },
 ];
