@@ -215,6 +215,20 @@ a:hover { color: var(--ink); }
 }
 .pill-button:hover { transform: translateY(-2px); }
 @media (max-width: 700px) {
+  .header {
+    flex-wrap: nowrap;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .logo-avatar {
+    width: 1.5em; height: 1.5em;
+  }
+  .nav {
+    gap: 10px;
+  }
+  .nav-item {
+    font-size: 12px;
+  }
   .home-sidebar {
     position: static;
   }
