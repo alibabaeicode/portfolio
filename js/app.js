@@ -131,6 +131,7 @@
     }
     const p = PAINTINGS[state.lightboxIndex];
     lightboxEl.hidden = false;
+    lightboxEl.style.opacity = '';
     lightboxEl.innerHTML = `<div class="lightbox-inner" data-action="stopProp">
         <img src="${p.src}" alt="Selected painting, ${label(state.lightboxIndex)}" />
         <div class="lightbox-label">${label(state.lightboxIndex)}</div>
@@ -180,6 +181,50 @@
     evt.preventDefault();
     action(el);
   }
+
+  // Swipe-down-to-dismiss on the lightbox (touch only — mirrors iOS Photos).
+  // Bound on the persistent lightboxEl, not its innerHTML, so it survives
+  // renderLightbox() re-rendering the image on open/next/prev.
+  const DISMISS_DISTANCE = 110;
+  let dragStartX = null, dragStartY = null, dragY = 0, dragging = false;
+
+  lightboxEl.addEventListener('touchstart', (e) => {
+    const inner = e.target.closest('.lightbox-inner');
+    if (!inner || state.lightboxIndex === null) return;
+    dragStartX = e.touches[0].clientX;
+    dragStartY = e.touches[0].clientY;
+    dragY = 0;
+    dragging = true;
+    inner.classList.add('dragging');
+  }, { passive: true });
+
+  lightboxEl.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
+    const dx = e.touches[0].clientX - dragStartX;
+    const dy = e.touches[0].clientY - dragStartY;
+    if (dy <= 0 || Math.abs(dx) > Math.abs(dy)) return; // downward + mostly-vertical only
+    e.preventDefault();
+    dragY = dy;
+    const inner = lightboxEl.querySelector('.lightbox-inner');
+    if (inner) inner.style.transform = `translateY(${dy}px)`;
+    lightboxEl.style.opacity = String(Math.max(1 - dy / 400, 0.4));
+  }, { passive: false });
+
+  lightboxEl.addEventListener('touchend', () => {
+    if (!dragging) return;
+    dragging = false;
+    const inner = lightboxEl.querySelector('.lightbox-inner');
+    if (inner) inner.classList.remove('dragging');
+    if (dragY > DISMISS_DISTANCE) {
+      if (inner) inner.style.transform = `translateY(${dragY + 200}px)`;
+      lightboxEl.style.opacity = '0';
+      setTimeout(closeLightbox, 200);
+    } else {
+      if (inner) inner.style.transform = '';
+      lightboxEl.style.opacity = '';
+    }
+    dragStartX = null; dragStartY = null; dragY = 0;
+  });
 
   document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-action]');
