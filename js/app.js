@@ -18,7 +18,7 @@
   function tile(index, className) {
     const p = PAINTINGS[index];
     return `<div class="image-tile ${className}" data-action="openLightbox" data-index="${index}">
-      <img src="${p.src}" alt="Ali Babaei painting, ${label(index)}" loading="lazy" />
+      <img src="${p.src}" alt="Ali Babaei painting, ${label(index)} — ${p.title}" loading="lazy" />
     </div>`;
   }
 
@@ -74,10 +74,10 @@
       return `<div class="poster${dark ? ' dark' : ''}" data-action="openLightbox" data-index="${i}">
         <div class="poster-head">
           <span>${label(i)}</span>
-          <span>Ali Babaei</span>
+          <span>${p.title}</span>
         </div>
         <div class="poster-image">
-          <img src="${p.src}" alt="Ali Babaei painting ${label(i)}" loading="lazy" />
+          <img src="${p.src}" alt="Ali Babaei painting, ${label(i)} — ${p.title}" loading="lazy" />
         </div>
       </div>`;
     }).join('');
@@ -133,8 +133,8 @@
     lightboxEl.hidden = false;
     lightboxEl.style.opacity = '';
     lightboxEl.innerHTML = `<div class="lightbox-inner" data-action="stopProp">
-        <img src="${p.src}" alt="Selected painting, ${label(state.lightboxIndex)}" />
-        <div class="lightbox-label">${label(state.lightboxIndex)}</div>
+        <img src="${p.src}" alt="Selected painting, ${label(state.lightboxIndex)} — ${p.title}" />
+        <div class="lightbox-label">${label(state.lightboxIndex)} — ${p.title}</div>
       </div>
       <div class="lightbox-close" data-action="closeLightbox" tabindex="0" role="button">Close &#10005;</div>
       <div class="lightbox-prev" data-action="prevImage" tabindex="0" role="button">&#8592;</div>
