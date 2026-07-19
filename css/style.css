@@ -15,10 +15,29 @@
      explicit and in one place instead of picking mobile sizes by eye. */
   --mobile-heading-scale: 1.4;
 
-  /* Page shell: top/side padding shared by every top-level page section
-     (Home, Gallery, About, Contact). Bottom padding stays per-page. */
+  /* Page shell: padding shared by every top-level page section
+     (Home, Gallery, About, Contact). */
   --page-pad-y: clamp(110px, 18vw, 150px);
   --page-pad-x: clamp(20px, 5vw, 48px);
+  --page-pad-bottom: 120px;
+
+  /* Spacing scale (4px base) — use these for gap/padding/margin instead of
+     picking pixel values by eye. Named by multiplier (space-3 = 3x4 = 12px)
+     so new steps can slot in without renaming existing ones. */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Body/lede type scale — the one fluid size used for every paragraph
+     that isn't a heading or small UI label (About copy, taglines, notes). */
+  --font-body-size: clamp(17px, 2vw, 20px);
 
   /* Signature motion curve — a soft, decelerating ease used for page-enter
      and image-hover transitions. */
@@ -96,14 +115,14 @@ a:hover { color: var(--ink); }
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-header);
   display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px;
+  flex-wrap: wrap; gap: var(--space-3);
   padding: clamp(16px, 3vw, 26px) clamp(20px, 5vw, 48px);
   background: var(--paper-90);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--ink);
 }
 .logo {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: var(--space-3);
   font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(15px, 2.2vw, 19px);
@@ -164,11 +183,14 @@ a:hover { color: var(--ink); }
   letter-spacing: -.01em;
 }
 
-/* Muted copy: secondary paragraphs (taglines, closing lines, notes). */
+/* Muted copy: secondary paragraphs (taglines, closing lines, notes,
+   captions). Shares --font-body-size with .about p — same fluid scale,
+   just muted instead of ink-colored. */
 .home-tagline,
 .home-closing,
+.home-row-text p,
 .contact-note {
-  font-size: clamp(17px, 2vw, 20px);
+  font-size: var(--font-body-size);
   line-height: 1.6;
   color: var(--muted);
   margin: 0;
@@ -176,15 +198,15 @@ a:hover { color: var(--ink); }
 
 /* Home */
 .home {
-  padding: var(--page-pad-y) var(--page-pad-x) 100px;
-  display: flex; flex-wrap: wrap; gap: 36px;
+  padding: var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom);
+  display: flex; flex-wrap: wrap; gap: var(--space-9);
 }
 .home-sidebar {
   position: sticky;
   top: clamp(90px, 16vw, 150px);
   flex: 1 1 320px; min-width: 280px; max-width: 500px;
   height: max-content;
-  display: flex; flex-direction: column; gap: 36px;
+  display: flex; flex-direction: column; gap: var(--space-9);
 }
 .home .home-name {
   line-height: .86;
@@ -194,9 +216,9 @@ a:hover { color: var(--ink); }
 .home-tagline {
   max-width: 320px;
 }
-.home-links { display: flex; flex-direction: column; gap: 14px; }
+.home-links { display: flex; flex-direction: column; gap: var(--space-3); }
 .icon-link {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: var(--space-3);
   cursor: none; width: max-content;
 }
 .icon-link svg { display: block; flex: none; }
@@ -205,10 +227,10 @@ a:hover { color: var(--ink); }
   padding-bottom: 2px;
 }
 .pill-button {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
+  display: flex; align-items: center; justify-content: center; gap: var(--space-3);
   background: var(--ink); color: var(--paper);
   border-radius: var(--radius-pill);
-  padding: 18px 32px;
+  padding: var(--space-4) var(--space-8);
   cursor: none;
   transition: transform .25s ease;
   width: max-content;
@@ -217,14 +239,14 @@ a:hover { color: var(--ink); }
 @media (max-width: 700px) {
   .header {
     flex-wrap: nowrap;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
   }
   .logo-avatar {
     width: 1.5em; height: 1.5em;
   }
   .nav {
-    gap: 14px;
+    gap: var(--space-3);
   }
   .nav-item {
     font-size: 13px;
@@ -243,7 +265,7 @@ a:hover { color: var(--ink); }
 
 .home-content {
   flex: 2 1 480px; min-width: 280px;
-  display: flex; flex-direction: column; gap: 28px;
+  display: flex; flex-direction: column; gap: var(--space-7);
 }
 .image-tile { overflow: hidden; cursor: none; }
 .image-tile img {
@@ -259,24 +281,21 @@ a:hover { color: var(--ink); }
 .image-tile.tile-feat-d { height: clamp(280px, 44vw, 560px); }
 .image-tile.tile-feat-d:hover img { transform: scale(1.03); }
 
-.home-row { display: flex; flex-wrap: wrap; gap: 28px; align-items: start; }
+.home-row { display: flex; flex-wrap: wrap; gap: var(--space-7); align-items: start; }
 .home-row-b { flex: 1.3 1 260px; }
-.home-row-text { flex: .7 1 220px; padding-top: 20px; }
+.home-row-text { flex: .7 1 220px; padding-top: var(--space-5); }
 .home-h2 {
   font-size: clamp(30px, 5vw, 56px);
   line-height: .95;
-  margin: 0 0 16px;
-}
-.home-row-text p {
-  font-size: 16px; line-height: 1.65; color: var(--muted); margin: 0;
+  margin: 0 0 var(--space-4);
 }
 .home-grid3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 28px;
+  gap: var(--space-7);
 }
 .home-statement {
-  display: flex; flex-wrap: wrap; gap: 24px; align-items: center; padding: 10px 0;
+  display: flex; flex-wrap: wrap; gap: var(--space-7); align-items: center; padding: var(--space-2) 0;
 }
 .home-statement div {
   flex: 1 1 240px;
@@ -290,9 +309,8 @@ a:hover { color: var(--ink); }
 
 /* Gallery */
 .gallery {
-  padding: var(--page-pad-y) var(--page-pad-x) 90px;
+  padding: var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom);
 }
-.gallery h1 { margin: 0 0 48px; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -301,7 +319,7 @@ a:hover { color: var(--ink); }
   border: 1px solid var(--ink);
 }
 .poster {
-  padding: 22px;
+  padding: var(--space-6);
   height: clamp(280px, 40vw, 420px);
   display: flex; flex-direction: column;
   cursor: none;
@@ -315,7 +333,7 @@ a:hover { color: var(--ink); }
   flex: 1;
   display: flex; align-items: flex-end;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: var(--space-5);
 }
 .poster-image img {
   width: 100%; height: 100%;
@@ -327,32 +345,32 @@ a:hover { color: var(--ink); }
 /* Page titles */
 .page h1 {
   font-size: clamp(40px, 7vw, 96px);
-  margin: 0 0 48px;
+  margin: 0 0 var(--space-12);
 }
 
 /* About */
 .about {
-  padding: var(--page-pad-y) var(--page-pad-x) 120px;
+  padding: var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom);
   max-width: 900px;
 }
-.about h1 { margin: 0 0 40px; }
-.about p { font-size: 20px; line-height: 1.6; margin: 0 0 28px; }
+.about h1 { margin: 0 0 var(--space-10); }
+.about p { font-size: var(--font-body-size); line-height: 1.6; margin: 0 0 var(--space-7); }
 .about p:last-child { color: var(--muted); margin-bottom: 0; }
 
 /* Contact */
 .contact {
-  padding: var(--page-pad-y) var(--page-pad-x) 120px;
+  padding: var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom);
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
 }
 .contact h1 {
   font-size: clamp(48px, 10vw, 140px);
-  margin: 0 0 24px;
+  margin: 0 0 var(--space-6);
   line-height: .9;
 }
 .contact-note {
   max-width: 480px;
-  margin-bottom: 32px;
+  margin-bottom: var(--space-8);
 }
 .contact a {
   font-family: var(--font-label);
