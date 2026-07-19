@@ -3,6 +3,20 @@
 Design tokens live as CSS custom properties in `css/style.css` (`:root`). This
 file documents what they mean and the conventions for using them.
 
+## Keeping this in sync
+
+This document and the UI must change together, in both directions:
+
+- A UI change that introduces a new size, color, or repeated pattern updates
+  this file in the same commit/PR — either as a new token (if it's reusable)
+  or a note on why it's a deliberate one-off (if it isn't).
+- A change to this file (a new token, a changed scale step, a renamed
+  convention) gets applied to every place in the CSS/HTML it affects, not
+  left as documentation of an aspiration.
+
+Never let the two drift apart — a design system that doesn't match the
+actual UI is worse than no design system, since it actively misleads.
+
 ## Tokens
 
 | Token | Value | Use |
