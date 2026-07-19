@@ -224,10 +224,10 @@ a:hover { color: var(--ink); }
     width: 1.5em; height: 1.5em;
   }
   .nav {
-    gap: 10px;
+    gap: 14px;
   }
   .nav-item {
-    font-size: 12px;
+    font-size: 13px;
   }
   .home-sidebar {
     position: static;
