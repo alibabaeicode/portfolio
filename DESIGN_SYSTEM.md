@@ -14,14 +14,49 @@ file documents what they mean and the conventions for using them.
 | `--font-display` | Barriecito | Large display type (hero name, page titles, H2/statement) |
 | `--font-label` | Space Grotesk | UI labels (nav, buttons, links, meta) |
 | `--font-body` | Inter | Body copy |
+| `--font-body-size` | `clamp(17px, 2vw, 20px)` | The one fluid size for every paragraph that isn't a heading or UI label |
+| `--space-2` … `--space-12` | `8px` … `48px` | Spacing scale — see below |
 | `--radius-pill` | `999px` | Pill-shaped buttons |
 | `--ease-signature` | `cubic-bezier(.16, 1, .3, 1)` | Page-enter animation, image-hover transitions |
 | `--z-header` / `--z-lightbox` / `--z-cursor` | `500` / `900` / `9999` | Stacking order, low to high |
-| `--page-pad-y` / `--page-pad-x` | `clamp(110px,18vw,150px)` / `clamp(20px,5vw,48px)` | Shared top/side padding for every top-level page section |
+| `--page-pad-y` / `--page-pad-x` / `--page-pad-bottom` | `clamp(110px,18vw,150px)` / `clamp(20px,5vw,48px)` / `120px` | Shared padding for every top-level page section |
 
 Rule: never hardcode `#fff` / `#000` for something the tokens already cover —
 use `var(--paper)` / `var(--ink)` so a future palette change only touches
 `:root`.
+
+## Spacing scale
+
+Every `gap`, `padding`, and `margin` that isn't driven by content or viewport
+width (those still use `clamp(..., vw, ...)`, see below) should come from
+this scale instead of a hand-picked pixel value:
+
+| Token | Value |
+|---|---|
+| `--space-2` | 8px |
+| `--space-3` | 12px |
+| `--space-4` | 16px |
+| `--space-5` | 20px |
+| `--space-6` | 24px |
+| `--space-7` | 28px |
+| `--space-8` | 32px |
+| `--space-9` | 36px |
+| `--space-10` | 40px |
+| `--space-12` | 48px |
+
+Naming is by multiplier on the 4px base (`--space-3` = 3 × 4 = 12px), so a
+new step (say 44px = `--space-11`) slots in without renaming anything else.
+
+This exists because the site used to have 10px/12px/14px gaps doing the same
+job in different places, and four different page-bottom-padding values
+(90/100/120/120px) with no reason for the spread. If you need a new spacing
+value, check this table for the closest existing step before adding a raw
+pixel number — a slightly-off value from the scale reads as more intentional
+than an exact one that doesn't.
+
+Fluid, viewport-driven sizes (image tile heights, page top padding, display
+type) are a different category — they're deliberately bespoke per element
+and stay as `clamp()`, not part of this scale.
 
 ## Shared style groups
 
@@ -40,8 +75,11 @@ actually different about it (size, position, spacing).
   - Hero name: `clamp(56px, 11vw, 160px)`
   - Page title (`.page h1`, e.g. About/Gallery/Contact heading): `clamp(40px, 7vw, 96px)`
   - H2 / statement line: `clamp(30px, 5vw, 56px)`
-- **Muted copy** (`.home-tagline, .home-closing, .contact-note`) — secondary
-  paragraphs: `clamp(17px, 2vw, 20px)`, 1.6 line-height, `var(--muted)`.
+- **Muted copy** (`.home-tagline, .home-closing, .home-row-text p,
+  .contact-note`) — secondary paragraphs and captions: `var(--font-body-size)`,
+  1.6 line-height, `var(--muted)`. `.about p` uses the same
+  `--font-body-size` but in `var(--ink)` since it's primary reading content,
+  not secondary.
 
 When adding a new element that's clearly "another one of these" (another
 small UI label, another display heading, another muted lede), add its
@@ -50,9 +88,12 @@ selector to the relevant shared group rather than re-typing the properties.
 ## Page shell
 
 Every top-level page (`.home`, `.gallery`, `.about`, `.contact`) uses
-`var(--page-pad-y) var(--page-pad-x)` for its top/side padding, so the
-header-clearance and side gutter stay identical across pages. Only the
-bottom padding is set per page, since it depends on what that page ends with.
+`var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom)` for its padding,
+so header-clearance, side gutter, and bottom breathing room stay identical
+across every page. Don't give an individual page its own one-off bottom
+padding — if a page genuinely needs more room at the end, change
+`--page-pad-bottom` and let every page move together, or ask whether that
+page really needs to be different.
 
 ## Mobile breakpoint
 
