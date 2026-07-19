@@ -103,12 +103,20 @@ a:hover { color: var(--ink); }
   border-bottom: 1px solid var(--ink);
 }
 .logo {
+  display: flex; align-items: center; gap: 10px;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(15px, 2.2vw, 19px);
   letter-spacing: .02em;
   text-transform: uppercase;
   cursor: none;
+}
+.logo-avatar {
+  width: 1.8em; height: 1.8em;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex: none;
 }
 .nav { display: flex; gap: clamp(18px, 4vw, 36px); }
 .nav-item {
