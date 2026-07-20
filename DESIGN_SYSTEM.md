@@ -117,7 +117,7 @@ that block rather than introducing another breakpoint, unless a specific
 element genuinely needs to change at a different width.
 
 **`701px`–`1279px`** is a tablet-only exception, currently used for exactly
-one thing: `.gallery-grid` pins to a fixed 3-column layout in that range,
+one thing: `.gallery-grid` pins to a fixed 4-column layout in that range,
 instead of the default `auto-fit` (which otherwise flips unpredictably
 between 2/3/4 columns depending on the exact viewport width — not a
 deliberate choice, just where the math landed). Below 701px and above
