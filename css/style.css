@@ -320,11 +320,10 @@ a:hover { color: var(--ink); }
 }
 /* Tablet breakpoint: intentional exception to the single mobile breakpoint
    (see DESIGN_SYSTEM.md) — auto-fit alone flips between 2/3/4 columns at
-   odd widths in this range; pin it to a consistent, deliberately bigger
-   3-across grid instead. */
+   odd widths in this range; pin it to a consistent 4-across grid instead. */
 @media (min-width: 701px) and (max-width: 1279px) {
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .poster {
