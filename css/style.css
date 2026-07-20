@@ -318,6 +318,15 @@ a:hover { color: var(--ink); }
   background: var(--ink);
   border: 1px solid var(--ink);
 }
+/* Tablet breakpoint: intentional exception to the single mobile breakpoint
+   (see DESIGN_SYSTEM.md) — auto-fit alone flips between 2/3/4 columns at
+   odd widths in this range; pin it to a consistent, deliberately bigger
+   3-across grid instead. */
+@media (min-width: 701px) and (max-width: 1279px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .poster {
   padding: var(--space-6);
   height: clamp(280px, 40vw, 420px);
