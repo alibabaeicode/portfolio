@@ -109,12 +109,21 @@ padding — if a page genuinely needs more room at the end, change
 `--page-pad-bottom` and let every page move together, or ask whether that
 page really needs to be different.
 
-## Mobile breakpoint
+## Breakpoints
 
-There is one responsive breakpoint for the whole site: **`max-width: 700px`**,
-used in a single `@media` block in `style.css`. Add new mobile-only overrides
-to that block rather than introducing another breakpoint, unless a specific
+**`max-width: 700px`** is the mobile breakpoint for the whole site, used in
+a single `@media` block in `style.css`. Add new mobile-only overrides to
+that block rather than introducing another breakpoint, unless a specific
 element genuinely needs to change at a different width.
+
+**`701px`–`1279px`** is a tablet-only exception, currently used for exactly
+one thing: `.gallery-grid` pins to a fixed 3-column layout in that range,
+instead of the default `auto-fit` (which otherwise flips unpredictably
+between 2/3/4 columns depending on the exact viewport width — not a
+deliberate choice, just where the math landed). Below 701px and above
+1279px, `.gallery-grid` is untouched auto-fit. Don't reuse this range for
+unrelated tweaks; if another element needs a tablet-specific change, decide
+deliberately whether it should share this range or define its own.
 
 ## Mobile type scale
 
