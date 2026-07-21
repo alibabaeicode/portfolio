@@ -24,7 +24,7 @@ actual UI is worse than no design system, since it actively misleads.
 | `--paper` | `#ffffff` | Page background, text/icon color on dark fills |
 | `--ink` | `#0a0a0a` | Primary text / high-contrast fills |
 | `--muted` | `#4a4a4a` | Secondary text (taglines, captions) |
-| `--paper-90` / `--paper-97` | translucent white | Header blur backdrop / lightbox scrim |
+| `--paper-97` | translucent white | Lightbox scrim |
 | `--font-display` | Barriecito | Large display type (hero name, page titles, H2/statement) |
 | `--font-label` | Space Grotesk | UI labels (nav, buttons, links, meta) |
 | `--font-body` | Inter | Body copy |
@@ -32,8 +32,8 @@ actual UI is worse than no design system, since it actively misleads.
 | `--space-2` … `--space-12` | `8px` … `48px` | Spacing scale — see below |
 | `--radius-pill` | `999px` | Pill-shaped buttons |
 | `--ease-signature` | `cubic-bezier(.16, 1, .3, 1)` | Page-enter animation, image-hover transitions |
-| `--z-header` / `--z-lightbox` / `--z-cursor` | `500` / `900` / `9999` | Stacking order, low to high |
-| `--page-pad-y` / `--page-pad-x` / `--page-pad-bottom` | `clamp(110px,18vw,150px)` / `clamp(20px,5vw,48px)` / `120px` | Shared padding for every top-level page section |
+| `--z-lightbox` / `--z-cursor` | `900` / `9999` | Stacking order, low to high (the header has no z-index — it's in normal document flow, not positioned) |
+| `--page-pad-y` / `--page-pad-x` / `--page-pad-bottom` | `clamp(32px,6vw,56px)` / `clamp(20px,5vw,48px)` / `120px` | Shared padding for every top-level page section |
 
 Rule: never hardcode `#fff` / `#000` for something the tokens already cover —
 use `var(--paper)` / `var(--ink)` so a future palette change only touches
@@ -99,15 +99,25 @@ When adding a new element that's clearly "another one of these" (another
 small UI label, another display heading, another muted lede), add its
 selector to the relevant shared group rather than re-typing the properties.
 
+## Header
+
+`.header` is in normal document flow (not `fixed`/`sticky`) — it scrolls
+away with the rest of the page, on both mobile and desktop. It used to be
+fixed with a translucent blurred background; when that changed,
+`--page-pad-y` (see below) and `.home-sidebar`'s sticky `top` offset were
+both reduced too, since neither needs to reserve space for a header
+that's no longer floating over content. If the header ever becomes fixed
+again, those two need to grow back in step with it.
+
 ## Page shell
 
 Every top-level page (`.home`, `.gallery`, `.about`, `.contact`) uses
 `var(--page-pad-y) var(--page-pad-x) var(--page-pad-bottom)` for its padding,
-so header-clearance, side gutter, and bottom breathing room stay identical
-across every page. Don't give an individual page its own one-off bottom
-padding — if a page genuinely needs more room at the end, change
-`--page-pad-bottom` and let every page move together, or ask whether that
-page really needs to be different.
+so side gutter and bottom breathing room stay identical across every page.
+Don't give an individual page its own one-off bottom padding — if a page
+genuinely needs more room at the end, change `--page-pad-bottom` and let
+every page move together, or ask whether that page really needs to be
+different.
 
 ## Breakpoints
 

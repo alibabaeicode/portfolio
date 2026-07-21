@@ -3,7 +3,6 @@
   --paper: #ffffff;
   --ink: #0a0a0a;
   --muted: #4a4a4a;
-  --paper-90: rgba(255, 255, 255, .9);
   --paper-97: rgba(255, 255, 255, .97);
 
   --font-display: 'Barriecito', cursive;
@@ -16,8 +15,10 @@
   --mobile-heading-scale: 1.4;
 
   /* Page shell: padding shared by every top-level page section
-     (Home, Gallery, About, Contact). */
-  --page-pad-y: clamp(110px, 18vw, 150px);
+     (Home, Gallery, About, Contact). The header sits in normal document
+     flow (not fixed), so --page-pad-y is just top breathing room, not
+     clearance for an overlay. */
+  --page-pad-y: clamp(32px, 6vw, 56px);
   --page-pad-x: clamp(20px, 5vw, 48px);
   --page-pad-bottom: 120px;
 
@@ -47,7 +48,6 @@
   --radius-pill: 999px;
 
   /* Z-index scale, low to high */
-  --z-header: 500;
   --z-lightbox: 900;
   --z-cursor: 9999;
 }
@@ -113,12 +113,10 @@ a:hover { color: var(--ink); }
 
 /* Header */
 .header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-header);
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: var(--space-3);
   padding: clamp(16px, 3vw, 26px) clamp(20px, 5vw, 48px);
-  background: var(--paper-90);
-  backdrop-filter: blur(6px);
+  background: var(--paper);
   border-bottom: 1px solid var(--ink);
 }
 .logo {
@@ -203,7 +201,7 @@ a:hover { color: var(--ink); }
 }
 .home-sidebar {
   position: sticky;
-  top: clamp(90px, 16vw, 150px);
+  top: clamp(16px, 3vw, 32px);
   flex: 1 1 320px; min-width: 280px; max-width: 500px;
   height: max-content;
   display: flex; flex-direction: column; gap: var(--space-9);
