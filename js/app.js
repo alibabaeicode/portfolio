@@ -104,7 +104,7 @@
     return `<section class="page contact">
       <h1>Let's<br>Talk</h1>
       <p class="contact-note">Got a thought living in the same space as these paintings — one that could become a new piece? Share it by email.</p>
-      <a href="mailto:alibabaei.design@gmail.com" data-action="growCursorLink">alibabaei.design@gmail.com</a>
+      <a href="mailto:alibabaeinote@gmail.com" data-action="growCursorLink">alibabaeinote@gmail.com</a>
     </section>`;
   }
 
