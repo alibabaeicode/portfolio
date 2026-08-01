@@ -126,14 +126,17 @@ a single `@media` block in `style.css`. Add new mobile-only overrides to
 that block rather than introducing another breakpoint, unless a specific
 element genuinely needs to change at a different width.
 
-**`701px`–`1279px`** is a tablet-only exception, currently used for exactly
-one thing: `.gallery-grid` pins to a fixed 4-column layout in that range,
-instead of the default `auto-fit` (which otherwise flips unpredictably
-between 2/3/4 columns depending on the exact viewport width — not a
-deliberate choice, just where the math landed). Below 701px and above
-1279px, `.gallery-grid` is untouched auto-fit. Don't reuse this range for
-unrelated tweaks; if another element needs a tablet-specific change, decide
-deliberately whether it should share this range or define its own.
+**`min-width: 701px`** is a second, narrow exception, currently used for
+exactly one thing: `.gallery-grid` pins to a fixed 4-column layout for
+every viewport above mobile (tablet and desktop alike), instead of the
+default `auto-fit` (which otherwise flips unpredictably between 2/3/4+
+columns depending on the exact viewport width, and keeps *adding* columns
+on wide desktop monitors instead of making the tiles wider — not a
+deliberate choice, just where the `minmax()` math landed). Below 701px,
+`.gallery-grid` is untouched auto-fit. Don't reuse this breakpoint for
+unrelated tweaks; if another element needs a non-mobile-specific change,
+decide deliberately whether it should share this breakpoint or define its
+own.
 
 ## Mobile type scale
 

@@ -316,10 +316,12 @@ a:hover { color: var(--ink); }
   background: var(--ink);
   border: 1px solid var(--ink);
 }
-/* Tablet breakpoint: intentional exception to the single mobile breakpoint
-   (see DESIGN_SYSTEM.md) — auto-fit alone flips between 2/3/4 columns at
-   odd widths in this range; pin it to a consistent 4-across grid instead. */
-@media (min-width: 701px) and (max-width: 1279px) {
+/* Above mobile: intentional exception to the single mobile breakpoint (see
+   DESIGN_SYSTEM.md) — auto-fit alone flips between 2/3/4+ columns depending
+   on the exact viewport width, and keeps adding columns on very wide
+   screens instead of growing the tiles. Pin it to a consistent 4-across
+   grid so tiles get wider, not more numerous. */
+@media (min-width: 701px) {
   .gallery-grid {
     grid-template-columns: repeat(4, 1fr);
   }
