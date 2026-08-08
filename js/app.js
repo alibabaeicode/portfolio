@@ -25,14 +25,16 @@
   function renderHome() {
     return `<section class="page home">
       <div class="home-sidebar">
-        <h1 class="home-name">Ali<br />Babaei</h1>
-        <p class="home-tagline">Observing what it means to be human — through paint, fragments and uncertainty.</p>
-        <div class="home-links">
-          <div class="icon-link" data-action="goGallery" tabindex="0" role="button">
-            ${ARROW_ICON}<span>View Work</span>
-          </div>
-          <div class="icon-link" data-action="goAbout" tabindex="0" role="button">
-            ${ARROW_ICON}<span>The Practice</span>
+        <div class="home-sidebar-top">
+          <h1 class="home-name">Ali<br />Babaei</h1>
+          <p class="home-tagline">Observing what it means to be human — through paint, fragments and uncertainty.</p>
+          <div class="home-links">
+            <div class="icon-link" data-action="goGallery" tabindex="0" role="button">
+              ${ARROW_ICON}<span>View Work</span>
+            </div>
+            <div class="icon-link" data-action="goAbout" tabindex="0" role="button">
+              ${ARROW_ICON}<span>The Practice</span>
+            </div>
           </div>
         </div>
         <div class="pill-button" data-action="goContact" tabindex="0" role="button">

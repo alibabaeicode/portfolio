@@ -202,8 +202,12 @@ a:hover { color: var(--ink); }
 .home-sidebar {
   position: sticky;
   top: clamp(16px, 3vw, 32px);
+  align-self: flex-start;
   flex: 1 1 320px; min-width: 280px; max-width: 500px;
-  height: max-content;
+  min-height: calc(100vh - 220px);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.home-sidebar-top {
   display: flex; flex-direction: column; gap: var(--space-9);
 }
 .home .home-name {
@@ -251,6 +255,9 @@ a:hover { color: var(--ink); }
   }
   .home-sidebar {
     position: static;
+    min-height: auto;
+    justify-content: flex-start;
+    gap: var(--space-9);
   }
   .home .home-name {
     /* min = desktop base (56px) x --mobile-heading-scale */
