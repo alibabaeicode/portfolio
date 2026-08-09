@@ -202,13 +202,17 @@ a:hover { color: var(--ink); }
 .home-sidebar {
   /* top matches --page-pad-y exactly: once the (non-fixed) header has
      scrolled past, that's the sidebar's natural gap from the viewport top,
-     so sticky engages at the same offset instead of visibly snapping. */
+     so sticky engages at the same offset instead of visibly snapping.
+     min-height is capped (not just calc(100vh - 220px)) so the button
+     settles low on the page without the links-to-button gap ballooning
+     on tall viewports. */
   position: sticky;
   top: var(--page-pad-y);
   align-self: flex-start;
   flex: 1 1 320px; min-width: 280px; max-width: 500px;
-  min-height: calc(100vh - 220px);
+  min-height: min(420px, calc(100vh - 220px));
   display: flex; flex-direction: column; justify-content: space-between;
+  gap: var(--space-8);
 }
 .home-sidebar-top {
   display: flex; flex-direction: column;
@@ -222,7 +226,7 @@ a:hover { color: var(--ink); }
   max-width: 320px;
   margin-top: var(--space-9);
 }
-.home-links { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-3); }
+.home-links { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
 .icon-link {
   display: flex; align-items: center; gap: var(--space-3);
   cursor: none; width: max-content;
