@@ -222,7 +222,7 @@ a:hover { color: var(--ink); }
   font-size: clamp(56px, 11vw, 160px);
   margin: 0;
 }
-/* Experimental: mask a painting inside the hero name instead of solid ink.
+/* Masks a painting inside the hero name instead of solid ink.
    background-clip: text needs a background, so color/-webkit-text-fill-color
    both go transparent — without the -webkit- one this fails silently in
    Safari/Chrome and just shows solid black. */
