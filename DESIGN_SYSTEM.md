@@ -95,6 +95,14 @@ actually different about it (size, position, spacing).
   `--font-body-size` but in `var(--ink)` since it's primary reading content,
   not secondary.
 
+The hero name (`.home-name`) additionally carries `.is-painted`
+(`background-clip: text` with a painting as the "ink") — a one-off
+modifier, not part of the shared display-heading group above, since no
+other display heading uses it. It still gets its type properties (font,
+weight, tracking) from the shared group; `.is-painted` only swaps the
+fill from solid `--ink` to a masked image. To change which painting shows,
+edit its `background-image` url in `style.css`.
+
 When adding a new element that's clearly "another one of these" (another
 small UI label, another display heading, another muted lede), add its
 selector to the relevant shared group rather than re-typing the properties.

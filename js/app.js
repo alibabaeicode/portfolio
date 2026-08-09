@@ -26,7 +26,7 @@
     return `<section class="page home">
       <div class="home-sidebar">
         <div class="home-sidebar-top">
-          <h1 class="home-name">Ali<br />Babaei</h1>
+          <h1 class="home-name is-painted">Ali<br />Babaei</h1>
           <p class="home-tagline">Observing what it means to be human — through paint, fragments and uncertainty.</p>
           <div class="home-links">
             <div class="icon-link" data-action="goGallery" tabindex="0" role="button">

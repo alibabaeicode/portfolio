@@ -222,6 +222,19 @@ a:hover { color: var(--ink); }
   font-size: clamp(56px, 11vw, 160px);
   margin: 0;
 }
+/* Masks a painting inside the hero name instead of solid ink.
+   background-clip: text needs a background, so color/-webkit-text-fill-color
+   both go transparent — without the -webkit- one this fails silently in
+   Safari/Chrome and just shows solid black. */
+.home .home-name.is-painted {
+  background-image: url('../assets/paintings/painting-10.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .home-tagline {
   max-width: 320px;
   margin-top: var(--space-9);
