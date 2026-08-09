@@ -37,6 +37,14 @@ in the gallery line up correctly). To swap any of them out, replace the
 file in `assets/paintings/` — the code only cares about the `src` path
 in `js/paintings.js`.
 
+## Deploying changes
+
+`index.html` links `css/style.css` and the `js/` files with a `?v=N` query
+string. There's no build step to hash filenames for cache-busting, so bump
+that `N` (in all three tags) whenever you change `style.css`, `app.js`, or
+`paintings.js` — otherwise some visitors' browsers may keep serving a
+cached copy of the old file after a deploy.
+
 ## Design reference
 
 `Design System.md` in the source claude.ai/design project is the token
