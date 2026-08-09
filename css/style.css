@@ -200,15 +200,18 @@ a:hover { color: var(--ink); }
   display: flex; flex-wrap: wrap; gap: var(--space-9);
 }
 .home-sidebar {
+  /* top matches --page-pad-y exactly: once the (non-fixed) header has
+     scrolled past, that's the sidebar's natural gap from the viewport top,
+     so sticky engages at the same offset instead of visibly snapping. */
   position: sticky;
-  top: clamp(16px, 3vw, 32px);
+  top: var(--page-pad-y);
   align-self: flex-start;
   flex: 1 1 320px; min-width: 280px; max-width: 500px;
   min-height: calc(100vh - 220px);
   display: flex; flex-direction: column; justify-content: space-between;
 }
 .home-sidebar-top {
-  display: flex; flex-direction: column; gap: var(--space-9);
+  display: flex; flex-direction: column;
 }
 .home .home-name {
   line-height: .86;
@@ -217,8 +220,9 @@ a:hover { color: var(--ink); }
 }
 .home-tagline {
   max-width: 320px;
+  margin-top: var(--space-9);
 }
-.home-links { display: flex; flex-direction: column; gap: var(--space-3); }
+.home-links { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-3); }
 .icon-link {
   display: flex; align-items: center; gap: var(--space-3);
   cursor: none; width: max-content;
@@ -264,7 +268,10 @@ a:hover { color: var(--ink); }
     font-size: clamp(calc(56px * var(--mobile-heading-scale)), 19vw, 130px);
   }
   .home-tagline {
-    margin-top: -28px;
+    /* was --space-9 (36px) via gap on the desktop-authored layout, minus
+       28px to tuck it under the bigger mobile name; now margin-top is the
+       only spacing source, so this is that same net ~8px directly. */
+    margin-top: var(--space-2);
   }
 }
 
