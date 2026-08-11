@@ -33,7 +33,7 @@
               ${ARROW_ICON}<span>View Work</span>
             </div>
             <div class="icon-link" data-action="goAbout" tabindex="0" role="button">
-              ${ARROW_ICON}<span>The Practice</span>
+              ${ARROW_ICON}<span>The Vision</span>
             </div>
           </div>
         </div>
