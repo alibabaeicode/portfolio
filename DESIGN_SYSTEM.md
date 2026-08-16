@@ -79,9 +79,9 @@ duplicating the declarations, they're grouped under one comma-separated
 selector in `style.css`, with each element's own rule holding only what's
 actually different about it (size, position, spacing).
 
-- **Label text** (`.icon-link span, .pill-button span, .poster-head,
-  .lightbox-close`) — small bold uppercase UI chrome: Space Grotesk, 700,
-  14px, `.04em` tracking.
+- **Label text** (`.pill-button span, .poster-head, .lightbox-close`) —
+  small bold uppercase UI chrome: Space Grotesk, 700, 14px, `.04em`
+  tracking.
 - **Display heading** (`.home .home-name, .home-h2, .home-statement div,
   .page h1`) — the site's large uppercase headline style: Barriecito, 700,
   uppercase, `-.01em` tracking. This is also the site's **display type
@@ -113,21 +113,21 @@ again, those two need to grow back in step with it.
 
 On desktop/tablet (`min-width: 701px`), `.home-sidebar` is `position: sticky`
 with `justify-content: space-between`, spreading its two children — the
-name/tagline/links cluster (`.home-sidebar-top`) and the `.pill-button` CTA —
+name/tagline cluster (`.home-sidebar-top`) and the `.pill-button` CTA —
 toward the top and bottom of the sidebar. `min-height` is capped at
 `min(420px, calc(100vh - 220px))` rather than left as an uncapped
 `100vh`-based value: on short pages the top cluster is much shorter than a
 full viewport, and an uncapped stretch dumped all the leftover space into a
-single gap between the links and the button, stranding the CTA far below
-them. The 420px cap plus an explicit `gap: var(--space-8)` (which acts as a
-floor even when `space-between` has no extra room to distribute) keeps that
-gap consistent and moderate instead of viewport-dependent. On mobile, this
-sidebar reverts to normal flow (`position: static`, `gap: var(--space-9)`
-between the same two children) — see the mobile breakpoint below.
+single gap above the button, stranding it far below the tagline. The 420px
+cap plus an explicit `gap: var(--space-8)` (which acts as a floor even when
+`space-between` has no extra room to distribute) keeps that gap consistent
+and moderate instead of viewport-dependent. On mobile, this sidebar reverts
+to normal flow (`position: static`, `gap: var(--space-9)` between the same
+two children) — see the mobile breakpoint below.
 
-`.home-links`'s `margin-top` (`var(--space-6)`) is deliberately larger than
-`.home-tagline`'s relationship to the name above it, so the links read as a
-separate cluster from the tagline paragraph rather than crowding it.
+The sidebar's only CTA is the `.pill-button` ("View Works", linking to the
+gallery) — there's no secondary link row here; About/Contact stay reachable
+from the top nav.
 
 ## Page shell
 
