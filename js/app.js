@@ -55,7 +55,7 @@
           <p class="home-tagline">${esc(HOME.tagline)}</p>
         </div>
         <div class="pill-button" data-action="goGallery" tabindex="0" role="button">
-          <span>View Work</span>
+          <span>View Gallery</span>
         </div>
       </div>
 
@@ -100,7 +100,7 @@
     }).join('');
 
     return `<section class="page gallery">
-      <h1>Selected Work</h1>
+      <h1>The Gallery</h1>
       <div class="gallery-grid">${posters}</div>
     </section>`;
   }
@@ -131,7 +131,7 @@
   }
 
   function renderNav() {
-    document.getElementById('nav-work').classList.toggle('active', state.view === 'gallery');
+    document.getElementById('nav-gallery').classList.toggle('active', state.view === 'gallery');
     document.getElementById('nav-about').classList.toggle('active', state.view === 'about');
     document.getElementById('nav-contact').classList.toggle('active', state.view === 'contact');
   }
@@ -154,15 +154,15 @@
       <div class="lightbox-next" data-action="nextImage" tabindex="0" role="button">&#8594;</div>`;
   }
 
-  // Each page gets its own URL (#work, #about, #contact — home stays hash-
-  // free) so tools like Clarity can tell pages apart and build funnels
+  // Each page gets its own URL (#gallery, #about, #contact — home stays
+  // hash-free) so tools like Clarity can tell pages apart and build funnels
   // across them. No server-side routing needed since only the hash
   // changes; navigate() is what callers use, setView() is the renderer.
-  const HASH_FOR_VIEW = { home: '', gallery: 'work', about: 'about', contact: 'contact' };
-  const VIEW_FOR_HASH = { '': 'home', work: 'gallery', about: 'about', contact: 'contact' };
+  const HASH_FOR_VIEW = { home: '', gallery: 'gallery', about: 'about', contact: 'contact' };
+  const VIEW_FOR_HASH = { '': 'home', gallery: 'gallery', about: 'about', contact: 'contact' };
   const TITLE_FOR_VIEW = {
     home: 'Ali Babaei — Designer & Painter',
-    gallery: 'Work — Ali Babaei',
+    gallery: 'Gallery — Ali Babaei',
     about: 'About — Ali Babaei',
     contact: 'Contact — Ali Babaei',
   };
@@ -285,7 +285,7 @@
   });
 
   document.getElementById('nav-logo').addEventListener('click', () => navigate('home'));
-  document.getElementById('nav-work').addEventListener('click', () => navigate('gallery'));
+  document.getElementById('nav-gallery').addEventListener('click', () => navigate('gallery'));
   document.getElementById('nav-about').addEventListener('click', () => navigate('about'));
   document.getElementById('nav-contact').addEventListener('click', () => navigate('contact'));
 
