@@ -143,12 +143,41 @@
       <div class="lightbox-next" data-action="nextImage" tabindex="0" role="button">&#8594;</div>`;
   }
 
+  // Each page gets its own URL (#work, #about, #contact — home stays hash-
+  // free) so tools like Clarity can tell pages apart and build funnels
+  // across them. No server-side routing needed since only the hash
+  // changes; navigate() is what callers use, setView() is the renderer.
+  const HASH_FOR_VIEW = { home: '', gallery: 'work', about: 'about', contact: 'contact' };
+  const VIEW_FOR_HASH = { '': 'home', work: 'gallery', about: 'about', contact: 'contact' };
+  const TITLE_FOR_VIEW = {
+    home: 'Ali Babaei — Designer & Painter',
+    gallery: 'Work — Ali Babaei',
+    about: 'About — Ali Babaei',
+    contact: 'Contact — Ali Babaei',
+  };
+
   function setView(view) {
     state.view = view;
     renderView();
     renderNav();
+    document.title = TITLE_FOR_VIEW[view] || TITLE_FOR_VIEW.home;
     window.scrollTo(0, 0);
   }
+
+  function viewFromHash() {
+    return VIEW_FOR_HASH[location.hash.slice(1)] || 'home';
+  }
+
+  function navigate(view) {
+    const hash = HASH_FOR_VIEW[view] || '';
+    if (location.hash.slice(1) === hash) {
+      setView(view);
+    } else {
+      location.hash = hash;
+    }
+  }
+
+  window.addEventListener('hashchange', () => setView(viewFromHash()));
 
   function openLightbox(index) {
     state.lightboxIndex = index;
@@ -165,10 +194,10 @@
   }
 
   const ACTIONS = {
-    goHome: () => setView('home'),
-    goGallery: () => setView('gallery'),
-    goAbout: () => setView('about'),
-    goContact: () => setView('contact'),
+    goHome: () => navigate('home'),
+    goGallery: () => navigate('gallery'),
+    goAbout: () => navigate('about'),
+    goContact: () => navigate('contact'),
     openLightbox: (el) => openLightbox(Number(el.dataset.index)),
     closeLightbox: () => closeLightbox(),
     prevImage: () => stepImage(-1),
@@ -244,10 +273,10 @@
     }
   });
 
-  document.getElementById('nav-logo').addEventListener('click', () => setView('home'));
-  document.getElementById('nav-work').addEventListener('click', () => setView('gallery'));
-  document.getElementById('nav-about').addEventListener('click', () => setView('about'));
-  document.getElementById('nav-contact').addEventListener('click', () => setView('contact'));
+  document.getElementById('nav-logo').addEventListener('click', () => navigate('home'));
+  document.getElementById('nav-work').addEventListener('click', () => navigate('gallery'));
+  document.getElementById('nav-about').addEventListener('click', () => navigate('about'));
+  document.getElementById('nav-contact').addEventListener('click', () => navigate('contact'));
 
   // Custom cursor: a 6px dot plus a 28px ring that grows to 64px over any
   // interactive element (mirrors the source design's cursor-follow behavior).
@@ -266,7 +295,6 @@
     }
   });
 
-  renderView();
-  renderNav();
+  setView(viewFromHash());
   renderLightbox();
 })();
