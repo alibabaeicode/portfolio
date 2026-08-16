@@ -1,6 +1,4 @@
 (() => {
-  const ARROW_ICON = `<svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#0a0a0a" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-
   const state = {
     view: 'home', // home | gallery | about | contact
     lightboxIndex: null,
@@ -55,17 +53,9 @@
         <div class="home-sidebar-top">
           <h1 class="home-name">Ali<br />Babaei</h1>
           <p class="home-tagline">${esc(HOME.tagline)}</p>
-          <div class="home-links">
-            <div class="icon-link" data-action="goGallery" tabindex="0" role="button">
-              ${ARROW_ICON}<span>View Work</span>
-            </div>
-            <div class="icon-link" data-action="goAbout" tabindex="0" role="button">
-              ${ARROW_ICON}<span>The Vision</span>
-            </div>
-          </div>
         </div>
-        <div class="pill-button" data-action="goContact" tabindex="0" role="button">
-          <span>Share A Thought</span>
+        <div class="pill-button" data-action="goGallery" tabindex="0" role="button">
+          <span>View Works</span>
         </div>
       </div>
 

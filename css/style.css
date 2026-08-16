@@ -157,7 +157,6 @@ a:hover { color: var(--ink); }
 /* Label text: small bold uppercase UI chrome — buttons, nav-style links,
    gallery meta, lightbox close. Reused as-is; page-specific rules below
    only add position/spacing/extra decoration on top of this. */
-.icon-link span,
 .pill-button span,
 .poster-head,
 .lightbox-close {
@@ -225,16 +224,6 @@ a:hover { color: var(--ink); }
 .home-tagline {
   max-width: 320px;
   margin-top: var(--space-9);
-}
-.home-links { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
-.icon-link {
-  display: flex; align-items: center; gap: var(--space-3);
-  cursor: none; width: max-content;
-}
-.icon-link svg { display: block; flex: none; }
-.icon-link span {
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 2px;
 }
 .pill-button {
   display: flex; align-items: center; justify-content: center; gap: var(--space-3);
