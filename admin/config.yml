@@ -1,0 +1,70 @@
+# Sveltia CMS config — see ../CMS_SETUP.md for the one-time setup this
+# needs before /admin will actually let anyone log in (a GitHub OAuth App
+# + a small OAuth proxy; base_url below is a placeholder until that's done).
+backend:
+  name: github
+  repo: alibabaeicode/portfolio
+  branch: main
+  base_url: https://REPLACE-ME.workers.dev
+
+site_url: https://alibabaei.art
+media_folder: "assets/paintings"
+public_folder: "assets/paintings"
+
+collections:
+  - name: "paintings"
+    label: "Paintings"
+    files:
+      - name: "paintings"
+        label: "All Paintings"
+        file: "content/paintings.json"
+        fields:
+          - label: "Paintings"
+            name: "paintings"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Title", name: "title", widget: "string" }
+
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Content"
+        file: "content/home.json"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - { label: "Hero Image (large, top)", name: "heroSrc", widget: "image" }
+          - { label: "Secondary Hero Image", name: "heroBSrc", widget: "image" }
+          - { label: "Featured Row Heading", name: "rowHeading", widget: "string" }
+          - { label: "Featured Row Text", name: "rowText", widget: "text" }
+          - label: "Feature Images (3, small row)"
+            name: "featSrcs"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }
+          - { label: "Bottom Feature Image", name: "featDSrc", widget: "image" }
+          - { label: "Statement Line", name: "statement", widget: "string" }
+          - { label: "Closing Line", name: "closing", widget: "text" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about"
+        label: "About Content"
+        file: "content/about.json"
+        fields:
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "text", widget: "text" }
+
+  - name: "contact"
+    label: "Contact Page"
+    files:
+      - name: "contact"
+        label: "Contact Content"
+        file: "content/contact.json"
+        fields:
+          - { label: "Note", name: "note", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }

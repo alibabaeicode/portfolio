@@ -1,0 +1,15 @@
+{
+  "tagline": "Observing what it means to be human — through paint, fragments and uncertainty.",
+  "heroSrc": "assets/paintings/painting-10.jpg",
+  "heroBSrc": "assets/paintings/painting-15.jpg",
+  "rowHeading": "Held Gaze",
+  "rowText": "A face caught mid-thought, before it decides what to become.",
+  "featSrcs": [
+    "assets/paintings/painting-18.jpg",
+    "assets/paintings/painting-21.jpg",
+    "assets/paintings/painting-04.jpg"
+  ],
+  "featDSrc": "assets/paintings/painting-12.jpg",
+  "statement": "The mark is the subject.",
+  "closing": "No likeness survives contact. Only residue — color, contour, the memory of a face."
+}
