@@ -125,7 +125,7 @@ and moderate instead of viewport-dependent. On mobile, this sidebar reverts
 to normal flow (`position: static`, `gap: var(--space-9)` between the same
 two children) — see the mobile breakpoint below.
 
-The sidebar's only CTA is the `.pill-button` ("View Works", linking to the
+The sidebar's only CTA is the `.pill-button` ("View Gallery", linking to the
 gallery) — there's no secondary link row here; About/Contact stay reachable
 from the top nav.
 
