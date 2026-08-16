@@ -55,7 +55,7 @@
           <p class="home-tagline">${esc(HOME.tagline)}</p>
         </div>
         <div class="pill-button" data-action="goGallery" tabindex="0" role="button">
-          <span>View Works</span>
+          <span>View Work</span>
         </div>
       </div>
 
