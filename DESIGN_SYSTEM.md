@@ -33,7 +33,7 @@ actual UI is worse than no design system, since it actively misleads.
 | `--radius-pill` | `999px` | Pill-shaped buttons |
 | `--ease-signature` | `cubic-bezier(.16, 1, .3, 1)` | Page-enter animation, image-hover transitions |
 | `--z-lightbox` / `--z-cursor` | `900` / `9999` | Stacking order, low to high (the header has no z-index — it's in normal document flow, not positioned) |
-| `--page-pad-y` / `--page-pad-x` / `--page-pad-bottom` | `clamp(32px,6vw,56px)` / `clamp(20px,5vw,48px)` / `120px` | Shared padding for every top-level page section |
+| `--page-pad-y` / `--page-pad-x` / `--page-pad-bottom` | `clamp(32px,6vw,56px)` / `clamp(20px,5vw,48px)` / `120px` | Shared padding for every top-level page section. `--page-pad-y` is overridden to a flat `48px` on mobile (`max-width: 700px`) — the clamp's 32px floor read too tight under the header there. |
 
 Rule: never hardcode `#fff` / `#000` for something the tokens already cover —
 use `var(--paper)` / `var(--ink)` so a future palette change only touches

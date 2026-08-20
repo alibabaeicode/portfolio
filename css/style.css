@@ -236,6 +236,13 @@ a:hover { color: var(--ink); }
 }
 .pill-button:hover { transform: translateY(-2px); }
 @media (max-width: 700px) {
+  :root {
+    /* More top breathing room than the shared clamp's 32px floor gives —
+       the (non-fixed) header reads too close to the page content below it
+       on mobile otherwise. Scoped to mobile only; tablet/desktop keep the
+       shared clamp(). */
+    --page-pad-y: 48px;
+  }
   .header {
     flex-wrap: nowrap;
     padding-left: var(--space-4);
