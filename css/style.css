@@ -245,7 +245,7 @@ a:hover { color: var(--ink); }
     width: 1.5em; height: 1.5em;
   }
   .nav {
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
   .nav-item {
     font-size: 13px;
